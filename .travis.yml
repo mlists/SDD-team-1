@@ -1,0 +1,14 @@
+---
+language: python
+dist: xenial
+
+python:
+  - '3.7.0'
+
+script:
+  - pyflakes .
+  - black --check --diff .
+
+after_success:
+  - pip install codecov
+  - codecov

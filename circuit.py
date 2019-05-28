@@ -7,15 +7,15 @@ rover.enableRover()
 global running  # flag tracking if a state is currently running
 
 # Tunables
-approach_time = 11  # time to drive to chair in s
+approach_time = 12  # time to drive to chair in s
 approach_velocity = 100  # percentage speed forwards
-drive_straight_difference = 8  # subtracted from the left motor
+drive_straight_difference = 3  # subtracted from the right motor
 
 pivot_velocity = 100  # percentage pivot speed
-pivot_time = 24  # pivot time in s
-pivot_motor_delta = -200  # subtracted from left motor to turn
+pivot_time = 31  # pivot time in s
+pivot_motor_delta = 20  # subtracted from left motor to turn
 
-return_time = approach_time  # time to return from chair in s
+return_time = 13  # time to return from chair in s
 return_velocity = approach_velocity  # percentage speed forwards
 
 def drive(motor_value: int, duration: float) -> None:
@@ -62,7 +62,7 @@ def pivot(motor_value: int, motor_delta: int, duration: float) -> None:
 
     while current_time < (start_time + duration):
         current_time = time.monotonic()
-        rover.motors.setMotorPower(100, 80)
+        rover.motors.setMotorPower(100, 70)
     rover.motors.setMotorPower(0, 0)
 
 

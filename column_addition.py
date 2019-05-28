@@ -2,12 +2,14 @@ def get_digit(number: float, n: int) -> int:
     """Return the digit at index n."""
     return int(number // 10 ** n % 10)
 
+
 def combine(iterable: iter) -> str:
     """Combine each element of an iterable into a single string."""
     combined = ""
     for i in range(len(iterable)):
         combined += str(iterable[i])
     return combined
+
 
 numbers = []
 lengths = []

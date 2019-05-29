@@ -1,10 +1,14 @@
-import StarLAB
 import time
+
+import StarLAB
+
+from music import Music
 
 rover = StarLAB.Connect(IP="192.168.1.2")
 rover.enableRover()
 
 global running  # flag tracking if a state is currently running
+music = Music(rover)  # create music instance
 
 # Tunables
 approach_time = 12  # time to drive to chair in s
@@ -70,4 +74,5 @@ start_time = time.monotonic()
 drive(approach_velocity, approach_time)
 pivot(pivot_velocity, pivot_motor_delta, pivot_time)
 drive(return_velocity, return_time)
+music.tunes()
 print(f"This test took {time.monotonic()-start_time} seconds to complete.")
